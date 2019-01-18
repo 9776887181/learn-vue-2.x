@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 计算属性缓存vs方法</title>
+	<script src="../vue.js"></script>	
+</head>
+<body>
+	<div id="app">	
+		<p>Reversed message: "{{ reversedMessage() }}"</p>	
+
+		<h2>{{ now }}</h2>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue!',
+				time: Date.now()				
+			},
+			methods: {
+				reversedMessage: function () {
+					return this.message.split('').reverse().join('');	
+				}
+			},
+			computed: {
+				now: function () {
+					this.time = Date.now();
+					return this.time;
+				}
+			}
+		})	
+	</script>
+</body>
+</html>
