@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 6 处理用户输入 v-model</title>
+
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>	
+		<input type="text" v-model="message">	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue!'
+			}
+		})
+	</script>
+</body>
+</html>

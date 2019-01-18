@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 9 </title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<app-nav></app-nav>
+		<app-view>	
+			<app-sidebar></app-sidebar>
+			<app-content></app-content>
+		</app-view>
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app'
+		})
+	</script>	
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 条件与循环 if</title>
+
+	<script src="vue.js"></script>
+</head>
+<body>
+	
+	<div id="app">
+		<p v-if="seen">你看见我啦！哈哈</p>
+	</div>
+	
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				seen: true
+			}
+		})	
+	</script>
+	
+</body>
+</html>
