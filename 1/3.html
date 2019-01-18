@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 数据与方法 example</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="example">
+		<h1>{{ a }}</h1>	
+	</div>	
+
+	<script>
+		
+		var data = { a: 1 }	
+		var vm = new Vue({
+			el: '#example',
+			data: data
+		})
+
+		vm.$data === data // => true
+
+		vm.$el === document.getElementById('example')
+
+		// $watch 是一个实例方法
+		vm.$watch('a', function (newVaule, oldValue) {
+			console.info(newVaule);
+		})
+	</script>
+</body>
+</html>
