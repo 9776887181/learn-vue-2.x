@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 5 指令 修饰符</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+
+		<form action="" v-on:submit.prevent="onSubmit">
+
+			<button type="submit">submit</button>
+			
+		</form>
+		
+	</div>		
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+				onSubmit: function () {
+					console.log('ok');
+					return false;	
+				}
+			}
+		})
+	</script>
+</body>
+</html>

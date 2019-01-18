@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 4 指令 参数</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-if="seen">你看见我了</p>	
+
+		<br />
+
+		<a v-bind:href="url">百度</a>
+
+		<br />
+
+		<button v-on:click="myClickFun">点我吖</button>
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				seen: true,
+				url: 'http://www.baidu.com'
+			},
+			methods: {
+				myClickFun: function () {
+					alert('bb');
+				}
+			}
+		})	
+	</script>
+</body>
+</html>

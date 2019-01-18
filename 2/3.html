@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 插值 javascript表达式</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<h1>{{ message }}</h1>	
+		
+		{{ number + 1 }}
+
+		{{ ok ? 'Yes' : 'No' }}
+
+		{{ message.split('').reverse().join('') }}
+
+		<div v-bind:id="'list-' + number">bbb</div>
+
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				number: 10,
+				ok: true,
+				message: 'abc'
+			}
+		})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 6 缩写 v-bind v-on</title>
+
+	<script src="../vue.js"></script>	
+</head>
+<body>
+	<div id="app">
+
+	<!--  v-bind -->
+	<a v-bind:href="url">百度</a>
+
+	<a :href="url">百度</a>
+
+	<!-- v-on -->
+	<button v-on:click="myClickFun">button</button>
+
+	<button @click="myClickFun">button</button>	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				url: 'http://www.baidu.com'
+			},
+			methods: {
+				myClickFun: function () {
+					alert('点个毛线！');	
+				}
+			}
+		})	
+	</script>
+</body>
+</html>

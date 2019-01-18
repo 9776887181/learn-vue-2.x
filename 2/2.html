@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 2 插值 特性</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<div v-bind:id="dynamicId">Test</div>	
+
+		<button v-bind:disabled="isButtonDisabled">Button</button>
+
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				dynamicId: 'ffff',
+				isButtonDisabled: true
+			}
+		})	
+	</script>	
+</body>
+</html>
