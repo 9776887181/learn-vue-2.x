@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 7 Html css 数组</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:style="[styleObject, overridingStyles]">Test</div>
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				styleObject: {
+					color: 'red',
+					fontSize: '13px'
+				},
+				overridingStyles: {
+					paddingTop: '20px'
+				}	
+			}
+		})
+	</script>
+</body>
+</html>

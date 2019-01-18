@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 Html class</title>
+
+	<style>
+		.active{background-color: #abc;}	
+		.text-danger{color: red;}
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<a href="javascript: void(0);" v-bind:class="classObject">百度</a>	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				classObject: {
+					active: true,
+					'text-danger': false
+				}
+			}
+		})		
+	</script>
+</body>
+</html>

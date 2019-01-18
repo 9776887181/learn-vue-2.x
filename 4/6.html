@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 6 Html css</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:style="styleObject">Test</div>	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				styleObject: {
+					color: 'red',
+					fontSize: '13px'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

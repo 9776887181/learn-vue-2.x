@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 0 Html class</title>
+
+	<style>
+		a.active{background-color: #abc;}	
+		.text-danger{color: red;}
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<!-- <a href="http://www.baidu.com" v-bind:class="{active: isActive}">百度</a> -->
+
+
+		<a href="javascript: void(0);" class="static"
+			v-bind:class="{active: isActive, 'text-danger' : hasError}"
+		>百度</a>
+	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				isActive: true,
+				hasError: false
+			}
+		})	
+	</script>
+</body>
+</html>
