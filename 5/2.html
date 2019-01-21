@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 2 条件渲染 v-if vs v-show</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<h1 v-if="ok">Yes</h1>	
+	
+		<h1 v-show="ok">Hello Vue!</h1>
+
+		<hr />
+
+		<h1 v-if="ok">Yes</h1>
+		<h1 v-else>No</h1>
+
+		<hr />
+		
+		<h2 v-if="number === 0" style="color: red;">{{ number }}</h2>	
+		<h2 v-else-if="number === 1" style="color: blue;">{{ number }}</h2>
+		<h2 v-else-if="number === 2" style="color: yellow;">{{ number }}</h2>
+		<h2 v-else>{{ number }}</h2>
+
+		<hr />
+
+		<template v-if="ok">
+			<p>yes</p>
+		</template>
+
+		<template v-else>
+			<p>no</p>
+		</template>
+
+		<hr />
+
+		<template v-if="loginType === 'username'">
+			<label for="">Username</label>	
+			<input type="text" placeholder="Enter your username" key="username-input">
+		</template>
+
+		<template v-else>
+			<label for="">Email</label>
+			<input type="text" placeholder="Enter your email address." key="email-input">
+		</template>
+	</div>	
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				ok: true,
+				loginType: 'username',
+				number: 0
+			}
+		})
+	</script>
+</body>
+</html>
