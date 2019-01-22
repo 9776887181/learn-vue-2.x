@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 表单输入绑定</title>
+
+	<style>
+		ul {
+			list-style: none;	
+		}
+
+		ul li {
+			line-height: 20px;
+			font-size: 12px;
+		}
+
+		li.m-t20 {
+			margin-top: 20px;
+		}
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<ul>
+			<li>
+				<input type="radio" v-model="picked" value="a">
+
+				<p>picked: {{ picked }}</p>
+			</li>	
+
+			<li class="m-t20"></li>
+
+			<li>
+				<input type="checkbox" v-model="toggle">
+				<p>toggle: {{ toggle }}</p>
+			</li>
+
+			<li class="m-t20"></li>
+
+			<li>
+				<select v-model="selected">
+					<option value="abc">ABC</option>
+				</select>				
+				<p>selected: {{ selected }}</p>
+			</li>
+
+			<li class="m-t20"></li>
+
+			<li>
+				<h2>复选框</h2>
+				<input 
+					type="checkbox"
+					v-model="toggle"
+					true-value="yes"
+					false-value="no"
+				>	
+			</li>
+
+			<li class="m-t20"></li>
+
+			<li>
+				<h2>单选按钮</h2>
+				<input type="radio" v-model="pick" v-bind:value="a">
+				
+				<p>vm.pick === vm.a {{ pick === a }}</p>
+			</li>
+
+			<li class="m-t20"></li>
+
+			<li>
+				<h2>选择框的选项</h2>	
+				<select v-model="selected1">
+					<option v-bind:value="{ number: 123}">123</option>
+				</select>
+
+				<p>selected: {{ selected1 }}</p>
+			</li>
+
+			<li class="m-t20"></li>
+
+			<li>
+				<h2>修饰符 .lazy .number .trim</h2>
+
+				<input v-model.lazy="msg">
+
+				<br>
+
+				<input v-model.number="age" type="number">	
+
+				<br>
+				
+				<input v-model.trim="msg">
+
+			</li>
+		</ul>
+			
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				picked: '',
+				toggle: false,
+				selected: '',
+				selected1: '',
+				pick: '',
+				a: '',
+				msg: '',
+				age: 0
+			},
+			watch: {
+				msg: function (newV, oldV) {
+					console.log('old: ' + newV)
+					console.log('new: ' + oldV)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
