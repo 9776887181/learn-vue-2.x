@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 列表渲染 v-for 对象</title>
+
+	<style>
+		ul {
+			list-style: none;
+		}		
+
+		li {
+			line-height: 20px;
+			font-size: 12px;
+		}
+
+		li.m10 {
+			margin-top: 20px;	
+		}
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul class="demo">
+			<!-- v-for in -->
+			<li v-for="value in object">{{ value }}</li>	
+
+			<li class="m10"></li>
+
+			<!-- v-for of -->
+			<li v-for="value of object">{{ value }}</li>
+
+			<li class="m10"></li>
+			
+			<!-- v-for in key -->
+			<li v-for="(value, key) in object">
+				{{ key }} : {{ value }}
+			</li>
+
+			<li class="m10"></li>	
+			
+			<!-- v-for of key -->
+			<li v-for="(value, key) of object">
+				{{ key }} : {{ value }}
+			</li>
+
+			<li class="m10"></li>
+
+			<!-- v-for in key index -->
+			<li v-for="(value, key, index) in object">
+				{{ index }}. {{ key }} : {{ value }}
+			</li>
+			
+			<li class="m10"></li>
+
+			<!-- v-for of key index -->
+			<li v-for="(value, key, index) of object">
+				{{ index }}. {{ key }} : {{ value }}
+			</li>
+		</ul>
+	</div>	
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				object: {
+					firstName: 'John',
+					lastName: 'Doe',
+					age: 30
+				}	
+			}	
+		})
+	</script>
+</body>
+</html>

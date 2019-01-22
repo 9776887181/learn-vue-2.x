@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 6 列表渲染 对象更改检测注意事项</title>
+
+	<style>
+		ul {
+			list-style: none;
+		}		
+
+		ul li {
+			line-height: 20px;
+			font-size: 12px;
+		}
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<ul>
+			<li v-for="(value, key, index) of userProfile">
+				{{ index }}. {{ key }} : {{ value }}
+			</li>
+		</ul>
+		
+	</div>	
+
+	<script>
+		var app = new Vue({
+			data: {
+				a: 1
+			}
+		})
+
+		// app.a 相应式的
+
+		app.b = 2
+
+		// app.b 不是相应式的 
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				userProfile: {
+					name: 'Anika'	
+				}	
+			}	
+		})
+
+		// Vue.set(vm.userProfile, 'age', 27)
+
+		// vm.$set(vm.userProfile, 'sex', '男')
+
+		// 无效
+		Object.assign(vm.userProfile, {
+			age: 27,
+			favoriteColor: 'Vue Green'
+		})
+
+		vm.userProfile = Object.assign({}, vm.userProfile, {
+			age: 27,
+			favoriteColor: 'Vue Green'	
+		})
+
+
+	</script>
+</body>
+</html>

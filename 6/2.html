@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 2 列表渲染 key</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+
+		<ul>
+			<li v-for="(item, index) of items" :key="item.id">
+				{{ index }}. {{ item.text }}
+			</li>	
+		</ul>			
+
+	</div>	
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items:[
+					{id: 0, text: 'a'},
+					{id: 1, text: 'b'},
+					{id: 2, text: 'c'}
+				]
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 5 列表渲染 数组更新检测 注意事项</title>
+
+	<style>
+		ul {
+			list-style: none;
+		}		
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<ul>
+			<li v-for="item of items">{{ item.message }}</li>
+
+		</ul>
+		
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{message: 'abc'},
+					{message: 'hello vue'}
+				]	
+			}
+		})
+
+		Vue.set(app.items, app.items.length, {message: '666'})
+
+		app.items.splice(app.items.length, 1, {message: 'bbbb'})
+
+		app.$set(app.items, app.items.length, {message: '789'})
+
+		// app.items.splice(10)
+
+	</script>
+</body>
+</html>

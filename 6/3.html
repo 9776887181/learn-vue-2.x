@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 列表渲染 数组更新检测 变异方法</title>
+
+	<style>
+		ul {
+			list-style: none;
+		}
+
+		ul li {
+			font-style: 12px;
+			line-height: 20px;
+		}
+	</style>
+	
+	<script src="../vue.js"></script>	
+
+</head>
+<body>
+	<div id="app">
+		
+		<ul>
+			<li v-for="(item, index) of items">
+				{{ index }} : {{ item.text }}
+			</li>
+		</ul>
+
+	</div>	
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{text: 'abc'},
+					{text: 'hello vue！'},
+					{text: 'bbbb'}
+				],
+				items1: [2, 3, 4, 1]
+			}
+		})
+
+		// push 追加
+		// vm.items.push({text: '追加一条数据！'});
+
+		// pop 移除数组中的最后一个元素并返回该元素。
+		// var lastData = vm.items.pop();
+		// console.error(lastData);
+
+		// shift 移除数组中的第一个元素并返回该元素。
+		// var firstData = vm.items.shift();
+		// console.info(firstData);
+
+		// unshift 将指定的元素插入数组开始位置并返回该数组。
+		// var newData = vm.items.unshift({text: '这是一条新信息！'});
+		// console.info(newData);
+
+		// splice 从一个数组中移除一个或多个元素，如果必要，在所移除元素的位置上插入新元素，返回所移除的元素。	
+		// var activeData = vm.items.splice(1,1, {text: '6666'});
+		// console.info(activeData);
+
+		// sort 返回一个元素已经进行了排序的Array对象。
+		// var sortData = vm.items1.sort();
+		// console.info(sortData);
+
+		// reverse 返回一个元素顺序被反转的Array对象
+		// var reverseData = vm.items.reverse();
+		// console.info(reverseData);
+
+	</script>
+</body>
+</html>

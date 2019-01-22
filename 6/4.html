@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 4 列表渲染 数组更新检测 替换数组</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+		<ul>
+			<li v-for="(item, index) of items" :key="index"> {{ item.message }} </li>	
+		</ul>	
+
+	</div>	
+
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{message: 'abc'},
+					{message: 'hello vue'},
+					{message: 'Foo'},
+					{message: 'Bar'}
+				]
+			}
+		});
+
+		vm.items = vm.items.filter(function (item) {
+			return !item.message.match(/Foo/);
+		})
+
+
+	</script>
+</body>
+</html>
