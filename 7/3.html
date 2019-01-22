@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 事件处理 修饰符 prevent</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<form action="" v-on:submit.prevent="onSubmit">
+			<button type="submit">Submit</button>	
+		</form>	
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+
+			},
+			methods: {
+				onSubmit: function () {
+					console.info('提交事件不再重载页面')
+					return true
+				}
+			}
+		})
+	</script>
+</body>
+</html>

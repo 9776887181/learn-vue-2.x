@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 0 事件处理 监听事件、事件处理方法</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- 事件监听 -->
+		<button v-on:click="counter += 1">Add 1</button>	
+		<p>The button above has been clicked {{ counter }} times.</p>
+
+		<!-- 事件处理方法 -->
+		<button v-on:click="greet">Greet</button>	
+
+		<!-- 内联处理器中的方法 -->
+		<p>
+			<button v-on:click="say('hi')">Say hi</button>
+			<button v-on:click="say('what')">Say what</button>
+		</p>
+
+		<!-- 内联处理器中的方法 原始DOM事件 -->
+		<p>
+			<button v-on:click="warn('Form cannot be submitted yet.', $event)">Test $Event</button>	
+		</p>
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				counter: 0,
+				name: 'Vue.js'
+			},
+			methods: {
+				greet: function (event) {
+					alert('Hello ' + this.name + '！')
+
+					// `event` 是原生DOM事件
+					if (event) {
+						console.info(event.target.tagName)
+					}	
+				},
+				say: function (message) {
+					alert(message)
+				},
+				warn: function (message, event) {
+					// 现在我们可以访问原生事件对象
+					if (event) event.preventDefault()
+					alert(message)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

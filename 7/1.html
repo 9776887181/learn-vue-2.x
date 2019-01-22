@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 事件处理 事件修饰符</title>
+
+	<style>
+		div.stop {
+			height: 100px;
+			width: 100%;
+			background-color: #ccc;
+		}
+
+		
+	</style>	
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	
+		<button v-on:click.stop="doThis">Test stop</button>
+
+		<div class="stop" v-on:click="test1">
+			<button v-on:click.stop="test2">abc</button>
+		</div>
+
+	</div>	
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			methods: {
+				doThis: function () {
+					console.info('阻止单击事件继续传播！')
+				},
+				test1: function () {
+					console.log('test1')
+				},
+				test2: function () {
+					console.log('test2')
+				}
+			}
+		})
+	</script>
+</body>
+</html>
