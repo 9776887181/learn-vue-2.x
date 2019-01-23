@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 3 组件 props</title>
+
+	<style>
+		div.blog-post {
+			background-color: #ccc;
+			margin-bottom: 20px;
+			text-align: center;
+		}		
+
+		div.blog-post p {
+			font-siez: 12px;	
+			line-height: 20px;
+		}
+
+	</style>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	
+		<blog-post
+			v-for="item of items"
+			:key="item.id"
+			:post="item">
+		</blog-post>
+
+	</div>	
+
+	<script>	
+		Vue.component('blog-post', {
+			props: ['post'],
+			template: '<div class="blog-post"><h3>{{ post.title }}</h3><p v-html="post.content"></p></div>'
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{id: 1, title: 'Hello Vue!', content: 'Hello Vue ... Hello Vue ...'},
+					{id: 2, title: 'Test PHP', content: 'test ...<string>big</string>'}
+				]
+			}
+		})
+	</script>
+</body>
+</html>

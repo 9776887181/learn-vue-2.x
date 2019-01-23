@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 4 通过事件向父级组件发送消息</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+
+		<div :style="{fontSize: postFontSize + 'em'}">
+			<blog-post
+				v-for="item of items"	
+				:key="item.id"
+				:post="item"
+				@enlarge-text="postFontSize++"
+			>
+			</blog-post>	
+		</div>
+		
+	</div>	
+
+	<script>
+			
+		Vue.component('blog-post', {
+			props: ['post'],
+			methods: {
+				addFun: function () {
+					this.$emit('enlarge-text')
+				}
+			},
+			template: `<div><h3>{{ post.title }}</h3><p v-html="post.content"></p> <button @click="addFun">add 1 font size</button></div>`
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{id: 0, title: 'Hello Vue!', content: 'hello vue ... abc'},
+					{id: 1, title: 'test php', content: 'test php ... '}
+				],
+				postFontSize: 1
+			}
+		})
+	</script>
+</body>
+</html>

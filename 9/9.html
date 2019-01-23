@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 9 Component 动态组件</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+
+		
+		<component :is="currentTabComponent"></component>
+		
+	</div>	
+
+	<script>
+		
+		Vue.component('my-component-one', {
+			template: `
+				<div>
+					<span>this is one.</span>
+				</div>
+			`	
+		})
+
+		Vue.component('my-component-two', {
+			template: `
+				<div>
+					<span>this is two.</span>
+				</div>
+			`		
+		})
+
+		Vue.component('my-component-tree', {
+			template: `
+				<div>
+					<span>this is tree.</span>
+				</div>
+			`
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				currentTabComponent: 'my-component-tree'
+			}	
+		})
+	</script>
+</body>
+</html>

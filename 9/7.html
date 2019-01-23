@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 7 组件 v-model</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<custom-input
+			:value="searchText"
+			@input="searchText = $event"
+		>
+		</custom-input>
+
+
+		<custom-input
+			:value="searchText"
+			@input="searchText = $event"
+		>
+		</custom-input>
+
+
+		<custom-input
+			:value="searchText1"
+			@input="searchText1 = $event"
+		>
+		</custom-input>
+		
+	</div>	
+
+	<script>		
+		Vue.component('custom-input', {
+			props: ['value'],
+			template: `
+				<div> 
+					<input 
+						@input="$emit('input', $event.target.value)"
+						:value="value">
+				</div>
+			`
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				searchText: 'hello vue',
+				searchText1: ''
+			}
+		})
+	</script>
+</body>
+</html>

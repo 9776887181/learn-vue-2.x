@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 1 组件 counter</title>
+
+	<style></style>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>	
+
+	<script>
+	
+		Vue.component('button-counter', {
+			data: function () {
+				return {
+					count: 0
+				}
+			},
+			methods: {
+				addFun: function () {
+					this.count += 1
+				},
+				clearFun: function () {
+					this.count = 0	
+				}
+			},
+			computed: {
+				showValue: function () {
+					return '当前的值是：' + this.count;	
+				}
+			},
+			watch: {
+				count: function (newV, oldV) {
+					console.info(newV)
+				}
+			},
+			template: '<div><button v-on:click="addFun">You clicked me {{ count }} times.</button><button @click="clearFun">Clear</button><p>{{ showValue }}</p></div>'
+		})
+
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+
+			}
+		})
+	</script>
+</body>
+</html>

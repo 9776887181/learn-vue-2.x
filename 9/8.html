@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 8 Component slot</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+
+		<my-slot-test></my-slot-test>
+
+		<my-slot-test>hello vue</my-slot-test>
+		
+	</div>	
+
+	<script>
+	
+		Vue.component('my-slot-test', {
+			template: `
+				<div>
+					<h2>这是一个slot测试</h2>
+					<slot>bbb</slot>
+				</div>
+			`	
+		})
+
+		var app = new Vue({
+			el: '#app'	
+		})
+	</script>
+</body>
+</html>

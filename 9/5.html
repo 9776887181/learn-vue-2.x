@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue learn 5 组件 使用事件抛出一个值</title>
+
+	<script src="../vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		
+		<blog-post
+			v-for="item of items"
+			:key="item.id"
+			:post="item"
+			:style="{fontSize: item.fontSize + 'em'}"
+			@edit-font-size="editFontSize"
+		>
+		</blog-post>
+
+	</div>	
+
+	<script>
+		Vue.component('blog-post', {
+			props: ['post'],
+			template: `<div><h3 v-text="post.title"></h3><p v-html="post.content"></p><button @click="$emit('edit-font-size', 'red', post.id)">ooooo</button></div>`
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{id: 1, title: 'Hello Vue!', content: 'hello vue ... ... ... ', fontSize: 1},
+					{id: 2, title: 'test php.', content: 'test php ... ... ', fontSize: 1}
+				]	
+			},
+			methods: {
+				editFontSize: function (color, id) {
+					console.log(this.$event)		
+				}
+			}
+		})
+	</script>
+</body>
+</html>
